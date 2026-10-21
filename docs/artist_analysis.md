@@ -1,8 +1,8 @@
 # Artist and Track Characteristics Analysis
 
-**Project:** The Anatomy of a Hit: Decoding Audio Features of Global Chart-Toppers
-**Section:** Member 4 — Artists and Track Characteristics Analysis
-**Dataset source:** [Spotify Tracks Dataset on Kaggle](https://www.kaggle.com/datasets/yashdev01/spotify-tracks-dataset)
+**Project:** The Anatomy of a Hit: Decoding Audio Features of Global Chart-Toppers  
+**Section:** Artists and Track Characteristics Analysis  
+**Dataset source:** [Spotify Tracks Dataset on Kaggle](https://www.kaggle.com/datasets/yashdev01/spotify-tracks-dataset)  
 **Analyzed file:** `spotify-tracks-dataset (1).csv`
 
 ## 1. Objective
@@ -79,11 +79,10 @@ The duration histogram and box plot display records up to 15 minutes for readabi
 - The mean popularity across valid-duration records with a numeric popularity value is **33.32** (based on 113,549 records).
 - **29,894** record(s) contain more than one parsed artist name. These collaborations were credited to each parsed artist rather than treated as a single unnamed combined artist.
 
-Interpretation should refer to the generated charts: the artist-frequency chart compares distinct track credits, the duration histogram and box plot show the distribution within the 0–15 minute display window, and the scatter plot (when available) compares artist track counts with average popularity.
+Interpretation through generated charts: the artist-frequency chart compares distinct track credits, the duration histogram and box plot show the distribution within the 0–15 minute display window, and the scatter plot compares artist track counts with average popularity.
 
 ## 8. Limitations
 
-- Findings describe the uploaded dataset and its collection snapshot, not every track on Spotify or the entire global music industry.
 - Popularity is a platform-specific score and may change over time; it is not a direct measure of artistic quality.
 - Artist parsing depends on how names are encoded in the CSV. Plain ambiguous fields are not split on every comma to avoid incorrectly splitting names that contain commas.
 - Repeated track IDs are flagged for transparency. Their presence does not, by itself, prove that the entire record is erroneous.
@@ -91,7 +90,7 @@ Interpretation should refer to the generated charts: the artist-frequency chart 
 
 ## 9. Conclusion
 
-This analysis describes which artists receive the most credited track entries in the dataset and summarizes the dataset's track-duration patterns. It compares artist-level track counts with average popularity when that field is available, while making collaboration-counting and data-quality decisions explicit. The numerical results above are calculated directly from the uploaded file and should be interpreted within the dataset's limitations.
+This analysis describes which artists receive the most credited track entries in the dataset and summarizes the dataset's track-duration patterns. It compares artist-level track counts with average popularity when that field is available, while making collaboration-counting and data-quality decisions explicit. 
 
 ## 10. Tools and reproducibility
 

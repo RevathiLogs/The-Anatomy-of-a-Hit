@@ -1,0 +1,41 @@
+# Audio Features and Mood Patterns
+
+## 1. Objective
+This analysis investigates the distributions and relationships of specific audio features within the Spotify Tracks dataset. The core research questions are:
+* How are energy, danceability, and valence distributed across the tracks?
+* Which audio features appear mathematically related to one another?
+* Do tracks with higher energy generally exhibit higher danceability?
+
+## 2. Dataset and Variables
+The analysis utilizes `spotify-tracks-dataset.csv`. To isolate this specific scope, the dataset was subset to the following variables:
+* `track_name` & `artists`: Track identifiers.
+* `danceability`: Suitability for dancing based on tempo, rhythm stability, and beat strength (0.0 to 1.0).
+* `energy`: Perceptual measure of intensity and activity (0.0 to 1.0).
+* `valence`: Musical positiveness conveyed by a track (0.0 to 1.0).
+* `acousticness`: Confidence measure of whether the track is acoustic (0.0 to 1.0).
+* `loudness`: Overall loudness of a track in decibels (dB).
+
+## 3. Data Preparation
+Data cleaning was performed using `pandas` to ensure accurate statistical distributions:
+1. **Index Cleanup:** Dropped legacy index artifacts (`Unnamed: 0` and `Unnamed: 0.1`).
+2. **Column Isolation:** Filtered the dataframe to only include the relevant audio features required for Member 1.
+3. **Targeted Null Removal:** Removed 1 row missing `track_name` and `artists`. 
+4. **Duplicate Removal:** Removed 27,268 exact duplicate rows to prevent artificial skewing of feature histograms.
+
+## 4. Exploratory Data Analysis
+Visualizations were generated using `matplotlib` and `seaborn`. 
+* **Distributions:** Histograms with Kernel Density Estimation (KDE) overlays were plotted for all five numeric features.
+* **Energy vs. Danceability:** A custom scatter plot utilizing marker size reduction (`s=2`) and heavy alpha blending (`alpha=0.02`) was engineered to map density dynamically, resolving severe overplotting.
+* **Relationships:** A Pearson correlation heatmap was generated for all numeric variables.
+
+## 5. Findings
+* **Feature Distributions:** [Write 1-2 sentences based on what your histograms showed. E.g., is acousticness heavily skewed towards 0?]
+* **Energy and Danceability:** [Describe the hotspot in your scatter plot. Where do the darkest red clusters sit?]
+* **Correlations:** [Mention the strongest positive and negative values from your heatmap]. 
+
+## 6. Limitations
+* **Causation Fallacy:** Strong correlations (e.g., between energy and loudness) do not establish that one feature directly causes the other; both may be heavily influenced by modern mixing and mastering standards.
+* **Dataset Bias:** The dataset includes multiple genres, meaning the distributions represent global averages rather than genre-specific trends (which are covered in Member 3's analysis).
+
+## 7. Conclusion
+[Write a 2-3 sentence summary answering your objective questions based on your findings.]

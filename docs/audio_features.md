@@ -26,10 +26,18 @@ Data cleaning was performed using `pandas` to ensure accurate statistical distri
 4. **Duplicate Removal:** Removed 27,268 exact duplicate rows to prevent artificial skewing of feature histograms.
 
 ## 4. Exploratory Data Analysis
-Visualizations were generated using `matplotlib` and `seaborn`. 
+Visualizations using `matplotlib` and `seaborn`. 
 * **Distributions:** Histograms with Kernel Density Estimation (KDE) overlays were plotted for all five numeric features.
+**Feature Distributions**
+![Distributions of Audio Features](distribution_of_audio_features.png)
+
 * **Energy vs. Danceability:** A custom scatter plot to map density dynamically, resolving severe overplotting.
+**Energy vs. Danceability Density**
+![Energy vs Danceability](Energy_vs_danceability.png)
+
 * **Relationships:** A correlation heatmap was generated for all numeric variables.
+**Feature Correlation Heatmap**
+![Correlation Heatmap](heatmap_audio_features.png)
 
 ## 5. Findings
 * **Feature Distributions:** Most tracks in the dataset are heavily produced, indicated by the massive spike near zero for acousticness.
@@ -48,3 +56,4 @@ both may be heavily influenced by modern mixing and mastering standards.
 
 ## 7. Conclusion
 Overall, this dataset leans heavily toward loud, energetic, non-acoustic tracks. While having high energy doesn't guarantee a track will be highly danceable, the dense clustering shows they usually go hand-in-hand. The strongest mathematical takeaways confirm common musical intuition: louder tracks are almost always highly energetic, and acoustic tracks almost never are.
+

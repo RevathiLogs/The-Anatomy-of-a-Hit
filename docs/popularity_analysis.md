@@ -17,7 +17,14 @@ I have used the Spotify Tracks Dataset for this analysis, focusing specifically 
 ## 3. Data Preparation & Cleaning
 - **Explicit Encoding**: The `explicit` column uses boolean values (`True`/`False`), so it required no formatting changes.
 - **Missing Values**: Only 1 track name and 1 artist were missing out of 114,000 rows. Since the core analysis targets numeric scores (popularity and audio features), these rows were retained to preserve valuable data.
-- **Duplicates**:I identified 27,268 duplicate rows in the selected columns and removed them to reduce repeated records in the analysis.
+- **Duplicates**: I identified 27,268 duplicate rows in the selected columns and removed them to reduce repeated records in the analysis.
+
+### Summary of Data Processing
+| Cleaning Step | Target Column| Action Taken | Final Impact |
+| :--- | :--- | :--- | :--- |
+| **Missing Values** | Track Name, Artist | Retained the rows | It preserved core numeric data across 114000 rows |
+| **Duplicate Filtering** | Entire Selected Subset | Identified and dropped 27,268 duplicates | Reduced the bias that would come from repeated records |
+| **Feature Transformation** | `duration_ms` | Converted milliseconds to minutes (`duration_min`) | Enabled easier interpretation of track length |
 
 ## 4. Exploratory Data Analysis & Visualizations
 1. **Track Popularity Distribution**: I created a purple Seaborn histogram (`bins=50`, `kde=True`) to analyze the spread of popularity scores across the cleaned dataset.
@@ -28,18 +35,31 @@ I have used the Spotify Tracks Dataset for this analysis, focusing specifically 
 ## 5. Findings & Observations
 
 ### A. Track Popularity Distribution
+
+![Track Popularity Distribution](Graph1.png)
+
 - **The Zero Popularity Spike**: There is a massive spike of approximately 7,000 tracks with a popularity score of exactly 0, indicating that there are a large volume of completely undiscovered or negligible streaming tracks.
 - **Two Distinct Peaks**: Excluding the zero scores, the distribution reveals two main peaks: a sharp peak around a score of 20–25, and a broader one around 40–45.
 - **The Rarity of True Hits**: The right tail drops off steeply after 60. Tracks achieving a popularity score above 80 are extremely rare.
 
 ### B. Explicit vs. Non-Explicit Tracks
+
+![Explicit vs Non-Explicit Comparison](Graph2.png)
+
 - **Volume Imbalance**: The vast majority of tracks on Spotify are non-explicit (`False`), with explicit tracks (`True`) making up a smaller fraction.
 - **Popularity Advantage**: Despite being fewer in number, explicit tracks maintain a higher average popularity score than non-explicit tracks, suggesting higher average listener engagement.
 
 ### C. Track Popularity vs. Duration
+
+![Popularity vs Duration](Graph3.png)
+
 - **The 3-Minute Sweet Spot**: Most tracks are concentrated between approximately 2 and 4.5 minutes. The scatter plot also shows that highly popular tracks occur within this range.
 - **Longer Tracks Lose Traction**: Tracks longer than 5 minutes appear less concentrated at very high popularity scores.
+
 ### D. Popularity vs. Energy & Danceability
+
+![Popularity vs Energy and Danceability](Graph4.png)
+
 - **The Energy Sweet Spot**: Average popularity peaks in the mid-to-high energy range (0.5 to 0.7). Popularity drops for the most intense tracks (0.9 to 1.0), showing maximum energy does not guarantee a hit.
 - **The Danceability Arc**: Follows a similar curve, rising steadily to a peak between 0.5 and 0.7 before falling off at extreme danceability levels (1.0).
 - **Moderation is Best**: Listeners clearly favor tracks in the middle-upper ranges over absolute extremes.
